@@ -1,0 +1,17 @@
+.card_image {
+  background-color: greenyellow;
+}
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.container{
+  z-index: 0;
+}
+
+.sign_up {
+  z-index: 0;
+}
