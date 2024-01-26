@@ -12,6 +12,7 @@ header{
   z-index: 0;
 }
 
-.sign_up {
-  z-index: 0;
+
+.display_none {
+  display: none;
 }

@@ -6,17 +6,17 @@ import Home from './pages/Home'
 import About from './pages/About'
 import './App.css'
 import Signup from './pages/Signup'
+import Contact from './pages/Contact'
 
 const App = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route path='/'>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        </Route>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/contact' element={<Contact/>}/>
       </Routes>
       <Footer/>
     </>

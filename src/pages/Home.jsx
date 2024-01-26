@@ -60,38 +60,65 @@ const Home = () => {
           </BackgroundImage>
         </Grid.Col>
       </Grid>
-        <Space h={10}/>
+        <Space h={30}/>
       <Center>
         <Title>Service to meet your needs</Title>
       </Center>
       <Center>
         <Text>For all your needs, here's a range of services tailored to you</Text>
       </Center>
-      <Space h={20}/>
+      <Space h={40}/>
       <Tabs defaultValue="society" variant='pills' radius='xl'>
         <Tabs.List justify='center'>
           <Tabs.Tab value='society'>
-            For Society
+            <Title order={4}>For Society</Title>
           </Tabs.Tab>
           <Tabs.Tab value='complex'>
-            For Complex
+            <Title order={4}>For Complex</Title>
           </Tabs.Tab>
         </Tabs.List>
+        <Space h={30}/>
         <Tabs.Panel value='society'>
           <Grid>
-            <Grid.Col span={4}></Grid.Col>
-            <Grid.Col span={4}></Grid.Col>
-            <Grid.Col span={4}></Grid.Col>
+            <Grid.Col span={4}>
+              <Paper shadow='sm'>
+                <Title order={3}>Plan : 1 month</Title>
+                <Title order={3}>Price</Title>
+              </Paper>
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Paper shadow='sm'>
+                <Title>Plan</Title>
+              </Paper>
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Paper shadow='sm'>
+                <Title>Plan</Title>
+              </Paper>
+            </Grid.Col>
           </Grid>
         </Tabs.Panel>
         <Tabs.Panel value='complex'>
           <Grid>
-            <Grid.Col span={4}></Grid.Col>
-            <Grid.Col span={4}></Grid.Col>
-            <Grid.Col span={4}></Grid.Col>
+            <Grid.Col span={4}>
+              <Paper>
+                <Title>Plan</Title>
+              </Paper>
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Paper>
+                <Title>Plan</Title>
+              </Paper>
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Paper>
+                <Title>Plan</Title>
+              </Paper>
+            </Grid.Col>
           </Grid>
         </Tabs.Panel>
       </Tabs>
+      <Space h={30}/>
     </Container>
   )
 }
