@@ -11,32 +11,32 @@ const Footer = () => {
         <Flex justify="space-around">
           <Stack gap='sm'>
             <Title>Logo</Title>
-            <Text>text</Text>
+              <Text c='gray'>text</Text>
           </Stack>
           <Stack gap='sm'>
             <Title order={4}>Page</Title>
-            <Text>Home</Text>
-            <Text>Service</Text>
-            <Text>About</Text>
+            <Text c='gray'>Home</Text>
+              <Text c='gray'>Service</Text>
+              <Text c='gray'>About</Text>
           </Stack>
           <Stack gap='sm'>
             <Title order={4}>Founders</Title>
-            <Text>Dev</Text>
-            <Text>Kanika</Text>
-            <Text>Prince</Text>
-            <Text>Ayman</Text>
+              <Text c='gray'>Dev</Text>
+              <Text c='gray'>Kanika</Text>
+              <Text c='gray'>Prince</Text>
+              <Text c='gray'>Ayman</Text>
           </Stack>
           <Stack gap='sm'>
             <Title order={4}>Contact</Title>
-            <Text>Mumbai, Maharashtra</Text>
-            <Text>+918291360709</Text>
-            <Text>example@gmail.com</Text>
+              <Text c='gray'>Mumbai, Maharashtra</Text>
+              <Text c='gray'>+918291360709</Text>
+              <Text c='gray'>example@gmail.com</Text>
           </Stack>
         </Flex>
         <Flex justify='space-between' align='center'>
-          <Text>logo 2024 | All rights reserved</Text>
-          <Text>General terms and conditions of use</Text>
-          <Text>Terms and Conditions are reserved</Text>
+            <Text c='gray'>logo 2024 | All rights reserved</Text>
+            <Text c='gray'>General terms and conditions of use</Text>
+            <Text c='gray'>Terms and Conditions are reserved</Text>
         </Flex>
         </Stack>
       </Container>

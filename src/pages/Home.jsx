@@ -1,7 +1,49 @@
-import { BackgroundImage, Box, Button, Card, Center, Container, Flex, Grid, Group, Image, Paper, Space, Stack, Tabs, Text, Title } from '@mantine/core'
+import { BackgroundImage, Box, Button, Card, Center, Container, Flex, Grid, Group, Image, List, Paper, Space, Stack, Tabs, Text, Title } from '@mantine/core'
 import React from 'react'
 
 const Home = () => {
+  function customScrollDownAnimationInfo() {
+    const targetPosition = 350; // Set your target scroll position in pixels
+    const duration = 1000; // Set the duration of the animation in milliseconds
+    const framesPerSecond = 60;
+    const increment = targetPosition / (duration / 1000 * framesPerSecond);
+
+    function animateScroll(currentPosition, startTime) {
+      const currentTime = new Date().getTime();
+      const elapsed = currentTime - startTime;
+      const newPosition = currentPosition + increment;
+
+      window.scrollTo(0, newPosition);
+
+      if (elapsed < duration) {
+        requestAnimationFrame(() => animateScroll(newPosition, startTime));
+      }
+    }
+
+    animateScroll(window.scrollY, new Date().getTime());
+  }
+  function customScrollDownAnimationService() {
+    const targetPosition = 900; // Set your target scroll position in pixels
+    const duration = 500; // Set the duration of the animation in milliseconds
+    const framesPerSecond = 60;
+    const increment = targetPosition / (duration / 1000 * framesPerSecond);
+
+    function animateScroll(currentPosition, startTime) {
+      const currentTime = new Date().getTime();
+      const elapsed = currentTime - startTime;
+      const newPosition = currentPosition + increment;
+
+      window.scrollTo(0, newPosition);
+
+      if (elapsed < duration) {
+        requestAnimationFrame(() => animateScroll(newPosition, startTime));
+      }
+    }
+
+    animateScroll(window.scrollY, new Date().getTime());
+  }
+
+
   return (
     <Container className='container'>
       <Space h={20}/>
@@ -18,8 +60,8 @@ const Home = () => {
               <Text> to the next level</Text>
             </Box>
               <Group gap={10}> 
-                <Button variant='outline'>Read More</Button>
-                <Button variant='filled' bg='green.7'>Explore our Services</Button>
+                <Button variant='outline' onClick={customScrollDownAnimationInfo}>Read More</Button>
+                <Button variant='filled' bg='green.7' onClick={customScrollDownAnimationService}>Explore our Services</Button>
               </Group>
             </Stack>
             </Box>
@@ -68,7 +110,7 @@ const Home = () => {
         <Text>For all your needs, here's a range of services tailored to you</Text>
       </Center>
       <Space h={40}/>
-      <Tabs defaultValue="society" variant='pills' radius='xl'>
+      <Tabs defaultValue="society" variant='pills' radius='xl' className='home_services'>
         <Tabs.List justify='center'>
           <Tabs.Tab value='society'>
             <Title order={4}>For Society</Title>
@@ -81,39 +123,175 @@ const Home = () => {
         <Tabs.Panel value='society'>
           <Grid>
             <Grid.Col span={4}>
-              <Paper shadow='sm'>
-                <Title order={3}>Plan : 1 month</Title>
-                <Title order={3}>Price</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Monthly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={3}>₹ 3699</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                    <List component={Stack} spacing={5}>
+                    <List.Item>Access to Basic Features</List.Item>
+                    <List.Item>Customer Support</List.Item>
+                    <List.Item>Regular Updates</List.Item>
+                    <List.Item>Usage Limit</List.Item>
+                    <Button className='card_btn'>Buy</Button>
+                    </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
             <Grid.Col span={4}>
-              <Paper shadow='sm'>
-                <Title>Plan</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Quaterly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={3}>₹ 9899</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                  <List component={Stack} spacing={5}>
+                  <List.Item>All Monthly Plan Features</List.Item>
+                  <List.Item>Enhanced Customer Support</List.Item>
+                  <List.Item>Extended Usage Limits</List.Item>
+                      <List.Item>Exclusive Features</List.Item>
+                      <Button className='card_btn'>Buy</Button>
+                  </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
             <Grid.Col span={4}>
-              <Paper shadow='sm'>
-                <Title>Plan</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Yearly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={4}>₹ 15999</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                    <List component={Stack} spacing={-6} >
+                      <List.Item>All Quarterly Plan Features</List.Item>
+                      <List.Item>Premium Customer Support</List.Item>
+                      <List.Item>Unlimited Usage</List.Item>
+                      <List.Item>VIP Access</List.Item>
+                      <List.Item>Customization Options</List.Item>
+                      <Button className='card_btn'>Buy</Button>
+                    </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
           </Grid>
         </Tabs.Panel>
         <Tabs.Panel value='complex'>
           <Grid>
             <Grid.Col span={4}>
-              <Paper>
-                <Title>Plan</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Monthly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={4}>₹ 5699</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                    <List component={Stack} spacing={-6} >
+                      <List.Item>Regular Waste Collection</List.Item>
+                      <List.Item>Basic Sorting</List.Item>
+                      <List.Item>Customer Support</List.Item>
+                      <Button className='card_btn'>Buy</Button>
+                    </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
             <Grid.Col span={4}>
-              <Paper>
-                <Title>Plan</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Monthly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={4}>₹ 13,899</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                    <List component={Stack} spacing={-6} >
+                      <List.Item>All Monthly Plan Services</List.Item>
+                      <List.Item>Extended Bin Maintenance</List.Item>
+                      <List.Item>Exclusive Recycling Reports</List.Item>
+                      <Button className='card_btn'>Buy</Button>
+                    </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
             <Grid.Col span={4}>
-              <Paper>
-                <Title>Plan</Title>
-              </Paper>
+              <Card
+                h={400}
+                shadow='sm'
+                radius='lg'
+                withBorder
+                className='card_box'
+              >
+                <Card.Section>
+                  <Box bg="green.5" h={100} component={Center}>
+                    <Title c='white'>Yearly Plan</Title>
+                  </Box>
+                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                    <Title order={4}>₹ 20,999</Title>
+                  </Paper>
+                  <Space h={60} />
+                  <Center>
+                    <List component={Stack} spacing={-6} >
+                      <List.Item>All Monthly and <br/> Quarterly Plan Services</List.Item>
+                      <List.Item>Premium Bin Features</List.Item>
+                      <List.Item>Customized Sustainability Plan</List.Item>
+                      <List.Item>Educational Workshops</List.Item>
+                      <Button className='card_btn'>Buy</Button>
+                    </List>
+                  </Center>
+                </Card.Section>
+              </Card>
             </Grid.Col>
           </Grid>
         </Tabs.Panel>

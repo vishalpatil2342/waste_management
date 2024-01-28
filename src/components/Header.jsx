@@ -1,12 +1,33 @@
-import { Box, Button, Container, Flex, Group, Paper, PasswordInput, Stack, Text, TextInput, UnstyledButton } from '@mantine/core'
+import { Box, Button, Container, Flex, Group, Paper, PasswordInput, Text, TextInput, UnstyledButton } from '@mantine/core'
 import { modals } from '@mantine/modals'
-import React from 'react'
-import { Link, useLocation, useNavigate, useParams, useRoutes } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location.pathname)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const loginUser = async () => {
+    const result = await fetch("http://localhost:3000/api/login", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    })
+    console.log(email, password);
+    if (result.ok) {
+      console.log("user login successfully");
+    }
+    setEmail("");
+    setPassword("");
+    navigate("/");
+  }
   return (
     <header className={location.pathname === "/signup" ? 'display_none': ""}>
     <Paper shadow='sm'>
@@ -31,10 +52,14 @@ const Header = () => {
                   title: 'Log In',
                   children: (
                     <Flex gap='md' direction='column'>
-                      <TextInput label="Your email" required placeholder="Your email" data-autofocus />
-                      <PasswordInput label="Your password" required placeholder="Your password" data-autofocus />
+                      <TextInput 
+                      onChange={(e)=>setEmail(e.target.value)}  label="Your email" required placeholder="Your email" data-autofocus />
+                      <PasswordInput onChange={(e)=>setPassword(e.target.value)} label="Your password" required placeholder="Your password" data-autofocus />
                       <Flex justify='space-between' align='center'>
-                        <Button onClick={() => modals.closeAll()} >
+                        <Button onClick={() => {
+                          loginUser();
+                          modals.closeAll()
+                        }} >
                           Login
                         </Button>
                         <UnstyledButton onClick={() => {

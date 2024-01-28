@@ -16,3 +16,25 @@ header{
 .display_none {
   display: none;
 }
+
+.card_box {
+  position: relative;
+  z-index: 0;
+}
+
+.card_price{
+  position: absolute;
+  top: 13%;
+  left: 10%;
+  padding: 1rem 4rem;
+}
+
+.card_btn{ 
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.home_service {
+  z-index: 0;
+}
