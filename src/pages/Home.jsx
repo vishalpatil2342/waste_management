@@ -1,7 +1,8 @@
 import { BackgroundImage, Box, Button, Card, Center, Container, Flex, Grid, Group, Image, List, Paper, Space, Stack, Tabs, Text, Title } from '@mantine/core'
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useAnimate } from 'framer-motion'
 const Home = () => {
+  const [scope,animate] = useAnimate(); 
   function customScrollDownAnimationInfo() {
     const targetPosition = 350; // Set your target scroll position in pixels
     const duration = 1000; // Set the duration of the animation in milliseconds
@@ -122,13 +123,14 @@ const Home = () => {
         <Space h={30}/>
         <Tabs.Panel value='society'>
           <Grid>
-            <Grid.Col span={4}>
+            <Grid.Col span={4} ref={scope}>
               <Card
                 h={400}
                 shadow='sm'
                 radius='lg'
                 withBorder
                 className='card_box'
+                component='div'
               >
                 <Card.Section>
                   <Box bg="green.5" h={100} component={Center}>
@@ -179,7 +181,7 @@ const Home = () => {
               </Card>
             </Grid.Col>
             <Grid.Col span={4}>
-              <Card
+              <Card component='div'
                 h={400}
                 shadow='sm'
                 radius='lg'
@@ -212,31 +214,31 @@ const Home = () => {
         <Tabs.Panel value='complex'>
           <Grid>
             <Grid.Col span={4}>
-              <Card
-                h={400}
-                shadow='sm'
-                radius='lg'
-                withBorder
-                className='card_box'
-              >
-                <Card.Section>
-                  <Box bg="green.5" h={100} component={Center}>
-                    <Title c='white'>Monthly Plan</Title>
-                  </Box>
-                  <Paper shadow='sm' m='xl' className='card_price' component={Center}>
-                    <Title order={4}>₹ 5699</Title>
-                  </Paper>
-                  <Space h={60} />
-                  <Center>
-                    <List component={Stack} spacing={-6} >
-                      <List.Item>Regular Waste Collection</List.Item>
-                      <List.Item>Basic Sorting</List.Item>
-                      <List.Item>Customer Support</List.Item>
-                      <Button className='card_btn'>Buy</Button>
-                    </List>
-                  </Center>
-                </Card.Section>
-              </Card>
+                <Card
+                  h={400}
+                  shadow='sm'
+                  radius='lg'
+                  withBorder
+                  className='card_box'
+                >
+                  <Card.Section>
+                    <Box bg="green.5" h={100} component={Center}>
+                      <Title c='white'>Monthly Plan</Title>
+                    </Box>
+                    <Paper shadow='sm' m='xl' className='card_price' component={Center}>
+                      <Title order={4}>₹ 5699</Title>
+                    </Paper>
+                    <Space h={60} />
+                    <Center>
+                      <List component={Stack} spacing={-6} >
+                        <List.Item>Regular Waste Collection</List.Item>
+                        <List.Item>Basic Sorting</List.Item>
+                        <List.Item>Customer Support</List.Item>
+                        <Button className='card_btn'>Buy</Button>
+                      </List>
+                    </Center>
+                  </Card.Section>
+                </Card>
             </Grid.Col>
             <Grid.Col span={4}>
               <Card

@@ -5,6 +5,7 @@ import './index.css'
 import { MantineProvider } from '@mantine/core'
 import { BrowserRouter } from 'react-router-dom'
 import '@mantine/core/styles.css';
+import '@mantine/charts/styles.css';
 import { ModalsProvider } from '@mantine/modals'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

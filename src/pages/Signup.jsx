@@ -44,10 +44,7 @@ const Signup = () => {
 
           <TextInput value={societyName} onChange={(e)=>setSocietyName(e.target.value)} size='md' radius='lg' label="Your Society Name" placeholder='Name of Your Society' required />
             <Box>
-              <Checkbox required label="I agree to the terms and conditions" />
-            </Box>
-            <Box>
-              <Button onClick={signupUser}>Sign Up</Button>
+              <Button fullWidth onClick={signupUser}>Sign Up</Button>
             </Box>
       </Grid.Col>
         <Grid.Col span={7}>
